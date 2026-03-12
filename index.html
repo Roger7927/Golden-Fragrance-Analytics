@@ -1,55 +1,29 @@
-/* (c) 2026 Guillermo Roger Hernandez Chandia - ADS */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;600&display=swap');
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Fragrance | Private Collection</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <div class="luxury-container">
+        <header>
+            <h1 class="logo">GOLDEN FRAGRANCE</h1>
+            <p class="tagline">ACESSO PRIVADO // COLEÇÃO EXCLUSIVA</p>
+        </header>
 
-body {
-    background: #020202;
-    color: #fff;
-    font-family: 'Rajdhani', sans-serif;
-    margin: 0;
-    padding: 40px 20px;
-}
-
-header { text-align: center; margin-bottom: 60px; }
-.premium-logo { font-family: 'Orbitron', sans-serif; color: #d4af37; letter-spacing: 12px; margin: 0; }
-.access-code { font-size: 10px; color: #bc13fe; letter-spacing: 4px; margin-top: 10px; }
-
-.item-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.luxury-item {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(188, 19, 254, 0.2);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: 0.4s;
-}
-
-.luxury-item:hover {
-    border-color: #bc13fe;
-    box-shadow: 0 0 30px rgba(188, 19, 254, 0.2);
-}
-
-.visual-box video { width: 100%; height: 400px; object-fit: cover; filter: brightness(0.6); }
-
-.item-details { padding: 30px; text-align: center; }
-
-.acquire-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 40px;
-    border: 1px solid #d4af37;
-    color: #d4af37;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 3px;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-    transition: 0.4s;
-}
-
-.acquire-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px #d4af37; }
+        <section class="grid-hub">
+            <div class="card">
+                <div class="video-box">
+                    <video autoplay muted loop playsinline src="assets/borrifador.mp4"></video>
+                </div>
+                <div class="info">
+                    <h3>POCO C85 PURPLE</h3>
+                    <p>O smartphone que define sua estética.</p>
+                    <a href="https://www.amazon.com.br/dp/B0DZTZYF4?tag=roger7927-20" class="btn-neon">ADQUIRA O SEU</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
