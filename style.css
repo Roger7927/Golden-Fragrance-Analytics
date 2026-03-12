@@ -1,57 +1,82 @@
 /* (c) 2026 Guillermo Roger Hernandez Chandia - ADS */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500&display=swap');
+
+:root {
+    --neon-purple: #bc13fe;
+    --gold: #d4af37;
+    --bg-dark: #020202;
+}
+
 body {
-    background-color: #000;
+    background: radial-gradient(circle at center, #111 0%, var(--bg-dark) 100%);
     color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 20px;
-}
-
-header h1 {
-    color: #d4af37;
-    letter-spacing: 8px;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-}
-
-.subtitle {
-    font-size: 0.8rem;
-    letter-spacing: 4px;
-    color: #888;
-}
-
-.dashboard {
-    display: flex;
-    gap: 20px;
-    margin-top: 50px;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
 }
 
-.card {
-    background: #0a0a0a;
-    border: 1px solid #333;
-    padding: 30px;
-    width: 250px;
+/* Container do Monitor */
+.monitor {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(188, 19, 254, 0.2);
+    padding: 60px;
+    border-radius: 20px;
     text-align: center;
-    border-radius: 8px;
-    transition: 0.3s;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 20px rgba(188, 19, 254, 0.1);
+    max-width: 500px;
+    position: relative;
 }
 
-.neon-purple { border-color: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
-.neon-gold { border-color: #d4af37; box-shadow: 0 0 10px #d4af37; }
-.neon-blue { border-color: #00f2ff; box-shadow: 0 0 10px #00f2ff; }
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--gold);
+    letter-spacing: 15px;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
 
-.btn {
-    background: transparent;
-    border: 1px solid currentColor;
-    color: inherit;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 20px;
+.data-screen {
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+}
+
+.data-screen p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.neon {
+    color: var(--neon-purple);
     font-weight: bold;
+    text-shadow: 0 0 10px var(--neon-purple);
+    float: right;
 }
 
-.btn:hover { background: #fff; color: #000; }
+/* Botão de Elite */
+.btn-neon {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 15px 40px;
+    margin-top: 40px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    transition: 0.4s ease;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); /* Corte Cyberpunk */
+}
+
+.btn-neon:hover {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 30px var(--gold);
+}
