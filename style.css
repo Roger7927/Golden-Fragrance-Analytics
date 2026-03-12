@@ -1,47 +1,79 @@
 /* (c) 2026 Guillermo Roger Hernandez Chandia - ADS */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&family=Rajdhani:wght@300;600&display=swap');
 
-body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
-
-#hero-video {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover; filter: brightness(0.4) contrast(1.2); z-index: -1;
+:root {
+    --neon-purple: #bc13fe;
+    --gold: #d4af37;
+    --dark-void: #020202;
+    --glass: rgba(255, 255, 255, 0.03);
 }
 
-.luxury-interface {
-    height: 100vh; display: flex; align-items: center; justify-content: center;
+body {
+    background: radial-gradient(circle at center, #1a1a1a, var(--dark-void));
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+    padding: 50px 20px;
 }
 
-.glass-overlay {
-    width: 90%; max-width: 500px; padding: 60px;
-    background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px);
-    border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 2px;
-    text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+header { text-align: center; margin-bottom: 60px; }
+.logo { font-family: 'Orbitron', sans-serif; letter-spacing: 10px; color: var(--gold); text-shadow: 0 0 15px var(--gold); }
+.status { font-size: 0.7rem; letter-spacing: 3px; color: var(--neon-purple); opacity: 0.8; }
+
+/* Grid System */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.glow-text {
-    font-family: 'Cinzel', serif; color: #d4af37; font-size: 2.5rem;
-    letter-spacing: 10px; margin: 0; text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+/* Luxury Card Design */
+.luxury-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(188, 19, 254, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
-.tagline {
-    font-family: 'Montserrat', sans-serif; color: #fff; font-weight: 200;
-    letter-spacing: 5px; font-size: 0.7rem; margin-top: 10px; opacity: 0.8;
+.luxury-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 30px rgba(188, 19, 254, 0.3);
 }
 
-.offer-card { margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; }
-
-.exclusive-tag { color: #bc13fe; font-size: 10px; letter-spacing: 3px; font-weight: bold; }
-
-h2 { font-family: 'Cinzel', serif; color: #fff; font-size: 1.2rem; margin: 15px 0; }
-
-.premium-btn {
-    display: inline-block; margin-top: 25px; padding: 15px 40px;
-    border: 1px solid #d4af37; color: #d4af37; text-decoration: none;
-    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem;
-    letter-spacing: 3px; transition: 0.5s; background: transparent;
+.card-visual video {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    filter: brightness(0.7);
 }
 
-.premium-btn:hover {
-    background: #d4af37; color: #000; box-shadow: 0 0 30px #d4af37;
+.card-body { padding: 30px; text-align: center; }
+.tag { font-size: 10px; letter-spacing: 2px; color: var(--neon-purple); font-weight: bold; }
+h3 { font-family: 'Orbitron', sans-serif; margin: 15px 0; color: #fff; letter-spacing: 3px; }
+
+/* Botão Adquira o Seu */
+.btn-luxury {
+    display: block;
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: 0.4s;
+    background: rgba(212, 175, 55, 0.05);
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.btn-luxury:hover {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 25px var(--gold);
 }
