@@ -9,37 +9,48 @@
 
 body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: var(--dark); color: #fff; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
 
+/* Camada de Fundo */
 .video-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-#bg-video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.15) contrast(1.3); }
+#bg-video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.15) contrast(1.2); }
 
-.main-overlay { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 60px 20px; }
+.main-interface { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 20px; }
 
 header { text-align: center; margin-bottom: 60px; }
-.logo-gold { font-family: 'Cinzel', serif; font-size: 3rem; color: var(--gold); letter-spacing: 12px; margin: 0; text-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
-.status-tag { color: var(--purple); font-size: 0.7rem; letter-spacing: 5px; margin-top: 10px; font-weight: bold; }
+.logo-gold { font-family: 'Cinzel', serif; font-size: 3rem; color: var(--gold); letter-spacing: 12px; text-shadow: 0 0 25px rgba(212, 175, 55, 0.4); }
+.status-tag { color: var(--purple); font-size: 0.7rem; letter-spacing: 5px; font-weight: bold; }
 
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1000px; width: 100%; }
+/* Grid de Cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1100px; width: 100%; }
 
+/* O Card de Luxo (Glassmorphism) */
 .luxury-card {
     background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(40px);
-    border: 1px solid rgba(188, 19, 254, 0.2); border-radius: 4px;
-    overflow: hidden; transition: 0.6s ease;
+    border: 1px solid rgba(188, 19, 254, 0.15); border-radius: 4px;
+    overflow: hidden; transition: 0.5s ease;
 }
 
-.luxury-card:hover { transform: translateY(-10px); border-color: var(--purple); box-shadow: 0 0 30px rgba(188, 19, 254, 0.2); }
+.luxury-card:hover { transform: translateY(-10px); border-color: var(--purple); box-shadow: 0 0 40px rgba(188, 19, 254, 0.2); }
 
-.visual-box video { width: 100%; height: 400px; object-fit: cover; filter: brightness(0.8); }
+/* Enquadramento Perfeito do Vídeo */
+.visual-box { width: 100%; height: 420px; background: #000; overflow: hidden; }
+.visual-box video { 
+    width: 100%; height: 100%; 
+    object-fit: cover; /* AQUI MORA O ENQUADRAMENTO */
+    filter: brightness(0.8); 
+}
 
-.card-body { padding: 35px; text-align: center; }
-.category { color: var(--purple); font-size: 10px; letter-spacing: 3px; font-weight: bold; }
-h3 { font-family: 'Cinzel', serif; font-size: 1.4rem; margin: 20px 0; letter-spacing: 4px; }
+.card-info { padding: 30px; text-align: center; }
+.label { color: var(--purple); font-size: 10px; letter-spacing: 3px; font-weight: bold; }
+h2 { font-family: 'Cinzel', serif; font-size: 1.4rem; margin: 15px 0; color: #fff; }
 
+/* Botão de Conversão */
 .btn-acquire {
-    display: inline-block; margin-top: 20px; padding: 15px 40px;
-    border: 1px solid var(--gold); color: var(--gold);
-    text-decoration: none; font-weight: bold; letter-spacing: 4px;
-    transition: 0.4s; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-    background: rgba(212, 175, 55, 0.05);
+    display: inline-block; padding: 15px 40px; border: 1px solid var(--gold);
+    color: var(--gold); text-decoration: none; font-weight: bold; letter-spacing: 4px;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    transition: 0.4s; background: rgba(212, 175, 55, 0.03);
 }
 
 .btn-acquire:hover { background: var(--gold); color: #000; box-shadow: 0 0 25px var(--gold); }
+
+footer { margin-top: 50px; opacity: 0.2; font-size: 9px; letter-spacing: 2px; }
