@@ -4,56 +4,62 @@
 :root {
     --gold: #d4af37;
     --purple: #bc13fe;
-    --dark-bg: #020202;
+    --dark: #020202;
+    --glass: rgba(255, 255, 255, 0.02);
 }
 
 body, html { 
-    margin: 0; padding: 0; height: 100%; width: 100%;
-    background: var(--dark-bg); font-family: 'Rajdhani', sans-serif;
-    overflow-x: hidden; color: #fff;
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background-color: var(--dark); color: #fff;
+    font-family: 'Rajdhani', sans-serif; overflow-x: hidden;
 }
 
-/* Background Video - Nível Whiskys */
+/* Camada 1: Video Background */
 .video-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 #bg-video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.2) contrast(1.2); }
 
+/* Camada 2: Overlay e Layout */
 .main-overlay {
     display: flex; flex-direction: column; align-items: center;
-    justify-content: center; min-height: 100vh; padding: 40px 20px;
+    justify-content: center; min-height: 100vh; padding: 60px 20px;
 }
 
-header { text-align: center; margin-bottom: 60px; }
-.premium-logo { 
-    font-family: 'Cinzel', serif; font-size: 3rem; color: var(--gold); 
-    letter-spacing: 12px; margin: 0; text-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+header { text-align: center; margin-bottom: 80px; }
+.logo-gold { 
+    font-family: 'Cinzel', serif; font-size: 3.5rem; color: var(--gold); 
+    letter-spacing: 15px; margin: 0; text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
 }
-.access-status { color: var(--purple); font-size: 0.7rem; letter-spacing: 5px; margin-top: 10px; font-weight: bold; }
+.status-tag { color: var(--purple); font-size: 0.7rem; letter-spacing: 6px; margin-top: 15px; font-weight: bold; }
 
-/* Luxury Cards - Glassmorphism de Elite */
+/* Camada 3: Grid e Cards (Glassmorphism) */
+.card-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 50px; max-width: 1200px; width: 100%;
+}
+
 .luxury-card {
-    background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(35px);
-    border: 1px solid rgba(188, 19, 254, 0.2); border-radius: 4px;
-    width: 100%; max-width: 380px; overflow: hidden;
-    transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    background: var(--glass); backdrop-filter: blur(40px);
+    border: 1px solid rgba(188, 19, 254, 0.15); border-radius: 2px;
+    overflow: hidden; transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.luxury-card:hover { transform: translateY(-12px); border-color: var(--purple); box-shadow: 0 0 40px rgba(188, 19, 254, 0.2); }
+.luxury-card:hover { transform: translateY(-15px); border-color: var(--purple); box-shadow: 0 0 50px rgba(188, 19, 254, 0.2); }
 
-.visual-area video { width: 100%; height: 420px; object-fit: cover; filter: brightness(0.7); }
+.visual-box video { width: 100%; height: 420px; object-fit: cover; filter: brightness(0.8); }
 
-.card-content { padding: 40px; text-align: center; }
-.label { color: var(--purple); font-size: 10px; letter-spacing: 3px; font-weight: bold; }
-h3 { font-family: 'Cinzel', serif; font-size: 1.5rem; margin: 20px 0; letter-spacing: 4px; }
+.card-body { padding: 40px; text-align: center; }
+.category { color: var(--purple); font-size: 10px; letter-spacing: 4px; font-weight: bold; }
+h3 { font-family: 'Cinzel', serif; font-size: 1.6rem; margin: 25px 0; letter-spacing: 5px; }
 
-/* Botão de Conversão */
-.btn-purchase {
-    display: inline-block; margin-top: 25px; padding: 18px 50px;
+/* Botão Adquira o Seu (O Gatilho de Luxo) */
+.btn-acquire {
+    display: inline-block; margin-top: 30px; padding: 20px 55px;
     border: 1px solid var(--gold); color: var(--gold);
-    text-decoration: none; font-weight: bold; letter-spacing: 4px;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-    transition: 0.4s; background: rgba(212, 175, 55, 0.03);
+    text-decoration: none; font-weight: bold; letter-spacing: 5px;
+    transition: 0.4s; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    background: rgba(212, 175, 55, 0.03);
 }
 
-.btn-purchase:hover { background: var(--gold); color: #000; box-shadow: 0 0 35px var(--gold); }
+.btn-acquire:hover { background: var(--gold); color: #000; box-shadow: 0 0 30px var(--gold); }
 
-footer { margin-top: 50px; opacity: 0.3; font-size: 10px; letter-spacing: 2px; }
+footer { margin-top: 80px; opacity: 0.3; font-size: 10px; letter-spacing: 3px; }
