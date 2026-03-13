@@ -1,56 +1,49 @@
 /* (c) 2026 Guillermo Roger Hernandez Chandia - ADS */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@400;600&display=swap');
 
-:root {
-    --gold: #d4af37;
-    --purple: #bc13fe;
-    --dark: #020202;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background: #000; color: #fff; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
+
+/* Engine do Fundo */
+.bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+#bg-video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.2); }
+
+.wrapper { display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 60px 20px; }
+
+.header { text-align: center; margin-bottom: 80px; }
+.gold-title { font-family: 'Cinzel', serif; font-size: 3rem; color: #d4af37; letter-spacing: 15px; }
+.tagline { color: #bc13fe; font-size: 0.8rem; letter-spacing: 5px; margin-top: 10px; }
+
+/* Grid de Elite */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 450px)); gap: 50px; justify-content: center; width: 100%; }
+
+/* Card com Glassmorphism */
+.card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(188, 19, 254, 0.1); transition: 0.5s; }
+.card:hover { transform: translateY(-10px); border-color: #bc13fe; box-shadow: 0 0 30px rgba(188, 19, 254, 0.2); }
+
+/* Enquadramento do Vídeo - O Ponto Crítico */
+.visual { width: 100%; height: 350px; overflow: hidden; background: #000; }
+.visual video { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Faz o preenchimento total */
+    object-position: center; /* Centraliza a mulher no card */
+    filter: brightness(0.8);
 }
 
-body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: var(--dark); color: #fff; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
+.info { padding: 40px; text-align: center; }
+.edition { color: #bc13fe; font-size: 10px; letter-spacing: 3px; font-weight: bold; }
+h2 { font-family: 'Cinzel', serif; margin: 15px 0; font-size: 1.5rem; }
+p { opacity: 0.7; font-size: 0.9rem; margin-bottom: 30px; line-height: 1.5; }
 
-/* Camada de Fundo */
-.video-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-#bg-video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.15) contrast(1.2); }
-
-.main-interface { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 20px; }
-
-header { text-align: center; margin-bottom: 60px; }
-.logo-gold { font-family: 'Cinzel', serif; font-size: 3rem; color: var(--gold); letter-spacing: 12px; text-shadow: 0 0 25px rgba(212, 175, 55, 0.4); }
-.status-tag { color: var(--purple); font-size: 0.7rem; letter-spacing: 5px; font-weight: bold; }
-
-/* Grid de Cards */
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1100px; width: 100%; }
-
-/* O Card de Luxo (Glassmorphism) */
-.luxury-card {
-    background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(40px);
-    border: 1px solid rgba(188, 19, 254, 0.15); border-radius: 4px;
-    overflow: hidden; transition: 0.5s ease;
-}
-
-.luxury-card:hover { transform: translateY(-10px); border-color: var(--purple); box-shadow: 0 0 40px rgba(188, 19, 254, 0.2); }
-
-/* Enquadramento Perfeito do Vídeo */
-.visual-box { width: 100%; height: 420px; background: #000; overflow: hidden; }
-.visual-box video { 
-    width: 100%; height: 100%; 
-    object-fit: cover; /* AQUI MORA O ENQUADRAMENTO */
-    filter: brightness(0.8); 
-}
-
-.card-info { padding: 30px; text-align: center; }
-.label { color: var(--purple); font-size: 10px; letter-spacing: 3px; font-weight: bold; }
-h2 { font-family: 'Cinzel', serif; font-size: 1.4rem; margin: 15px 0; color: #fff; }
-
-/* Botão de Conversão */
-.btn-acquire {
-    display: inline-block; padding: 15px 40px; border: 1px solid var(--gold);
-    color: var(--gold); text-decoration: none; font-weight: bold; letter-spacing: 4px;
+/* Botão Estilo Uninter */
+.btn { 
+    display: inline-block; padding: 12px 35px; border: 1px solid #d4af37; color: #d4af37;
+    text-decoration: none; font-weight: bold; letter-spacing: 3px;
     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-    transition: 0.4s; background: rgba(212, 175, 55, 0.03);
+    transition: 0.4s;
 }
+.btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px #d4af37; }
 
-.btn-acquire:hover { background: var(--gold); color: #000; box-shadow: 0 0 25px var(--gold); }
-
-footer { margin-top: 50px; opacity: 0.2; font-size: 9px; letter-spacing: 2px; }
+footer { margin-top: auto; padding-top: 50px; opacity: 0.3; font-size: 10px; }
