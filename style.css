@@ -37,7 +37,7 @@ header { text-align: center; margin-bottom: 80px; }
 .label { color: var(--purple); font-size: 10px; font-weight: bold; letter-spacing: 3px; }
 h2 { font-family: 'Cinzel', serif; font-size: 1.4rem; margin: 20px 0; color: #fff; }
 
-/* Botão Adquira o Seu */
+/* Botão Adquira o Seu (The Hook) */
 .btn-acquire {
     display: inline-block; margin-top: 25px; padding: 18px 50px;
     border: 1px solid var(--gold); color: var(--gold);
