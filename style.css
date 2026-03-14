@@ -1,40 +1,150 @@
 /* (c) 2026 Guillermo Roger Hernandez Chandia - ADS */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@400;600&display=swap');
 
-body { background: #000; color: #fff; font-family: sans-serif; overflow-x: hidden; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* FIXA O VÍDEO NO FUNDO */
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 1. FUNDO - A BASE DO LUXO */
 .video-bg-fixo {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1; overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #000;
 }
-.video-bg-fixo video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.2); }
 
-/* LAYOUT DOS CARDS */
+.video-bg-fixo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.25) contrast(1.1) blur(1px); /* Fundo levemente escuro para destacar a frente */
+}
+
+/* Camada de Vinheta (Vignette) para focar no centro */
+.video-bg-fixo::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);
+    z-index: 1;
+}
+
+/* 2. LAYOUT - A INTERFACE */
 .main-content {
-    position: relative; z-index: 10;
-    display: flex; flex-direction: column; align-items: center;
-    padding: 60px 20px; min-height: 100vh;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    min-height: 100vh;
 }
 
-.logo { color: #d4af37; font-size: 3rem; letter-spacing: 12px; margin-bottom: 50px; }
+.logo {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: 15px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    margin-bottom: 10px;
+    text-align: center;
+}
 
-.grid-layout { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; }
+.badge {
+    color: #bc13fe;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+/* 3. CARDS - GLASSMORPHISM (EFEITO VIDRO) */
+.grid-layout {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .gold-card {
-    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px);
-    border: 1px solid rgba(188, 19, 254, 0.2); width: 350px; border-radius: 4px; overflow: hidden;
+    background: rgba(255, 255, 255, 0.03); /* Transparência da "caixa" */
+    backdrop-filter: blur(15px); /* O efeito fosco que faz a névoa do fundo brilhar */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(188, 19, 254, 0.15); /* Borda roxa sutil */
+    width: 350px;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito de Hover (Passar o Mouse) */
+.gold-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: #bc13fe;
+    box-shadow: 0 15px 40px rgba(188, 19, 254, 0.25);
+}
+
+.video-container {
+    width: 100%;
+    height: 400px;
+    background: #000;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 35px;
+    text-align: center;
+}
+
+.card-body h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* 4. BOTÃO - DESIGN DE GRIFE */
+.btn-link {
+    display: inline-block;
+    padding: 14px 30px;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    /* Corte moderno nas pontas (Polígono) */
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
     transition: 0.4s;
 }
 
-.gold-card:hover { border-color: #bc13fe; transform: translateY(-10px); }
+.btn-link:hover {
+    background: #d4af37;
+    color: #000;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+}
 
-/* ENQUADRAMENTO DOS VÍDEOS DOS CARDS */
-.video-container { width: 100%; height: 380px; background: #000; overflow: hidden; }
-.video-container video { width: 100%; height: 100%; object-fit: cover; }
-
-.card-body { padding: 30px; text-align: center; }
-.btn-link {
-    display: inline-block; padding: 12px 25px; border: 1px solid #d4af37;
-    color: #d4af37; text-decoration: none; margin-top: 15px; font-weight: bold;
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .grid-layout { gap: 20px; }
+    .gold-card { width: 100%; max-width: 320px; }
 }
